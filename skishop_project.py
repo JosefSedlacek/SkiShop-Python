@@ -10,7 +10,7 @@ import os
 #--------------------------------------------------
 #------------- Práce s JSON katalogem -------------
 os.getcwd()
-os.chdir(r'C:\Users\josef\OneDrive\Plocha\KURZ\Python\07 Final Project')
+os.chdir(r'\Final Project')
 
 # Načtení souboru json - katalog poboček a produktů
 with open(r'Data\catalogue.json', "r", encoding= 'UTF-8') as json_soubor:
@@ -144,7 +144,7 @@ plt.title("Průměrná cena produktů podle značek")
 plt.ylabel("Průměrná cena")
 plt.xlabel("Značka")
 plt.show()
-plt.savefig(r"C:\Users\josef\OneDrive\Plocha\KURZ\Python\07 Final Project\Vysledky\průměrná_cena_produktů_podle_značek.jpg")
+plt.savefig(r"\průměrná_cena_produktů_podle_značek.jpg")
 
 # Průměrná cena produktů podle kategorií:
 avg_price_by_category = produkty_df.groupby("Category")["Catalogue_Price"].mean()
@@ -153,7 +153,7 @@ plt.title("Průměrná cena produktů podle kategorií")
 plt.xlabel("Průměrná cena")
 plt.ylabel("Kategorie")
 plt.show()
-plt.savefig(r"C:\Users\josef\OneDrive\Plocha\KURZ\Python\07 Final Project\Vysledky\průměrná_cena_produktů_podle_kategorií.jpg")
+plt.savefig(r"\průměrná_cena_produktů_podle_kategorií.jpg")
 
 # Počet produktů podle kategorií:
 category_counts = produkty_df["Category"].value_counts()
@@ -161,7 +161,7 @@ category_counts.plot(kind="pie", figsize=(6, 6), autopct="%1.1f%%", textprops={"
 plt.title("Počet nabízených produktů podle kategorií")
 plt.ylabel("")
 plt.show()
-plt.savefig(r"C:\Users\josef\OneDrive\Plocha\KURZ\Python\07 Final Project\Vysledky\počet_produktů_podle_kategorií.jpg")
+plt.savefig(r"\počet_produktů_podle_kategorií.jpg")
 
 #--------------------------------------------------
 #---------------- Spojení tabulek -----------------
@@ -172,7 +172,7 @@ with open(r'Data\catalogue.json', "r", encoding= 'UTF-8') as json_soubor:
 branches = pd.DataFrame(katalog_data['list_of_branches'])
 products = pd.DataFrame(katalog_data['list_of_products'])
 ski_orders_df = pd.read_csv(
-    filepath_or_buffer= r"C:\Users\josef\OneDrive\Plocha\KURZ\Python\07 Final Project\Data\ski_orders.csv", 
+    filepath_or_buffer= r"\ski_orders.csv", 
     sep= ',', 
     decimal='.', 
     encoding='UTF-8')
