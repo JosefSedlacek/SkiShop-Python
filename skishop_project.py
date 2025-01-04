@@ -233,31 +233,3 @@ df = pd.merge(
 
 df.rename(columns={"Country_x": "Branch_country"}, inplace=True)
 df.rename(columns={"Country_y": "Athlete_country"}, inplace=True)
-
-
-#--------------------------------------------------
-#-------------- Odpovídání na otázky --------------
-
-# Některé produkty, které jste z katalogu odstranili, nyní mohou chybět. 
-# Kolik takových položek se nachází v tabulce? 
-# Kolik celkově bylo takto objednaných produktů? - nechápu zadání
-
-with open(r'Data\catalogue.json', "r", encoding= 'UTF-8') as json_soubor:
-    katalog_data = json.load(json_soubor)
-
-produkty_df = pd.DataFrame(katalog_data['list_of_products'])
-nelogicke_ceny = produkty_df[produkty_df['Catalogue_Price'] < 0 ]
-vyrazene_produkty = list(nelogicke_ceny['ID'])
-
-count = 0
-for i in range(0, len(vyrazene_produkty)):
-    rows_count = df.loc[df['Product_ID'] == vyrazene_produkty[i]]['Order_ID'].count()
-    count += rows_count
-
-print(f"V tabulce se nachází {count} řádků, které obsahují vyřazené produkty")
-
-# Některé položky jsou objednávky v budoucnosti - to nevadí. 
-# Avšak problém je, pokud byla objednávka vytvořena na ještě neotevřené pobočce. 
-# Ověřte, zda se tam nacházejí takové objednávky. Jaká je jejich celková hodnota? 
-# Pomocí .loc přiřaďte tyto objednávky do pobočky v Curychu.
-
