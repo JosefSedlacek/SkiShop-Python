@@ -1,5 +1,5 @@
 # SkiShop-Python
-Python projekt z kurzu od CodersLab
+Python projekt z kurzu od CodersLab. V souboru `skishop_project.py` najdete kód, který je řešením zadaných úloh.
 
 # Zadání:
 
